@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.Button {
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 8px;
+  border: solid 2px;
+  border-color: black;
+  border-radius: 5px;
+  color: rgb(255, 89, 0);
+  background-color: black;
+  cursor: pointer;
+}
+.Button :hover {
+  color: rgb(85, 255, 0);
+}
+.EncButtons {
+  font-weight: 900;
+  opacity: 0.9;
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 8px;
+  border: solid 2px;
+  border-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  color: rgb(9, 9, 9);
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
