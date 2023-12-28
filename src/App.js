@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clickSound from "./audio/click.wav";
 
 function App() {
   const [text, setText] = useState("");
@@ -83,8 +84,19 @@ function App() {
 }
 
 function Button({ children, onClickFunc = () => {} }) {
+  const [audio] = useState(new Audio(clickSound));
+  const playSound = () => {
+    audio.play();
+  };
+
   return (
-    <div className="Button" onClick={onClickFunc}>
+    <div
+      className="Button"
+      onClick={() => {
+        playSound();
+        onClickFunc();
+      }}
+    >
       {children}
     </div>
   );
@@ -92,9 +104,9 @@ function Button({ children, onClickFunc = () => {} }) {
 
 function BoxButtons({ mode, setMode }) {
   const selected = {
-    "background-color": "green",
+    backgroundColor: "green",
     color: "white",
-    "border-color": "green",
+    borderColor: "green",
   };
   return (
     <div>
