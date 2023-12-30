@@ -1,5 +1,6 @@
 import { useState } from "react";
-import clickSound from "./audio/click.wav";
+import { BoxButtons } from "./components/BoxButtons";
+import { EncCode } from "./components/EncCode";
 
 function App() {
   const [text, setText] = useState("");
@@ -63,67 +64,40 @@ function App() {
     setText(event.target.value);
   };
 
-  function inc() {
-    if (num !== 25) setNum((e) => e + 1);
-  }
-  function dec() {
-    if (num !== 1) setNum((e) => e - 1);
-  }
-
   return (
     <>
-      <div>Ceasar Cipher</div>
-      <input value={text} onChange={handleInputChange}></input>
-      <button onClick={handleEncryption}>Click</button>
-      <Button onClickFunc={dec}>◀</Button>
-      <span>{num}</span>
-      <Button onClickFunc={inc}>▶</Button>
-      <BoxButtons mode={mode} setMode={setMode} />
+      <CeasarBox />
+      <div className="right-content">
+        <input
+          // className="caesar-box"
+          value={text}
+          onChange={handleInputChange}
+        ></input>
+        <button onClick={handleEncryption}>Click</button>
+        <EncCode num={num} setNum={setNum} />
+        <BoxButtons mode={mode} setMode={setMode} />
+      </div>
     </>
   );
 }
 
-function Button({ children, onClickFunc = () => {} }) {
-  const [audio] = useState(new Audio(clickSound));
-  const playSound = () => {
-    audio.play();
-  };
-
+function CeasarBox() {
   return (
-    <div
-      className="Button"
-      onClick={() => {
-        playSound();
-        onClickFunc();
-      }}
-    >
-      {children}
-    </div>
-  );
-}
+    <div className="left-content">
+      <h1>Caesar cipher</h1>
+      <p>
+        The most sophisticated type of cryptography in the ancient world emerged
+        in the Roman Empire in 100 BC. The Caesar cipher, a substitution cipher,
+        made messages unintelligible by shifting letters by a particular number
+        of places down the Latin alphabet.
+      </p>
+      <p>
+        The recipient, therefore, had to know the system and the number of
+        alphabet places. Julius Caesar used this method to exchange messages
+        with his army generals at war.
+      </p>
 
-function BoxButtons({ mode, setMode }) {
-  const selected = {
-    backgroundColor: "green",
-    color: "white",
-    borderColor: "green",
-  };
-  return (
-    <div>
-      <div
-        onClick={() => setMode("encrypt")}
-        className={"EncButtons"}
-        style={mode === "encrypt" ? selected : {}}
-      >
-        ENCRYPT
-      </div>
-      <div
-        onClick={() => setMode("decrypt")}
-        className={"EncButtons"}
-        style={mode === "decrypt" ? selected : {}}
-      >
-        DECRYPT
-      </div>
+      <div className="info-box">INFO</div>
     </div>
   );
 }

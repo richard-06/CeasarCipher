@@ -11,6 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+body,
+/* html {
+  height: 100%;
+  margin: 0;
+} */
+
+* {
+  background-color: #ebebeb;
+  font-family: "Blinker";
+}
+
+h1 {
+  font-size: 7vh;
+  padding-bottom: 2.5vh;
+}
+p {
+  font-size: 1.6vh;
+  font-weight: 400;
+}
 
 .Button {
   user-select: none;
@@ -24,8 +43,10 @@ code {
   background-color: black;
   cursor: pointer;
 }
-.Button :hover {
-  color: rgb(85, 255, 0);
+.Button:hover {
+  color: #ebebeb;
+  background-color: black;
+  cursor: pointer;
 }
 .EncButtons {
   font-weight: 900;
@@ -39,4 +60,57 @@ code {
   color: rgb(9, 9, 9);
   background-color: rgb(255, 255, 255);
   cursor: pointer;
+}
+
+.info-box {
+  margin-top: 3vh;
+  width: 10vh;
+  padding: 1vh 2vh;
+  font-size: 2vh;
+  border: solid;
+  text-align: center;
+  border-width: 1px;
+}
+
+.info-box:hover {
+  color: #ebebeb;
+  background-color: black;
+  cursor: pointer;
+}
+
+.left-content {
+  display: inline-block;
+  border: solid red;
+  width: 30%;
+
+  /* line-height: 1.8vh; */
+
+  /* margin-top: 20vh;
+  margin-left: 10vh;
+  margin-right: 18vh; */
+
+  /* 100% of the viewport height */
+
+  background-color: lightblue;
+}
+.right-content {
+  width: 50%;
+  height: 100%;
+
+  background-color: red;
+  display: inline-block;
+}
+.caesar-box {
+  display: inline-block;
+  border: solid red;
+  width: 30%;
+  /* line-height: 1.8vh; */
+
+  /* margin-top: 20vh;
+  margin-left: 10vh;
+  margin-right: 18vh; */
+
+  /* 100% of the viewport height */
+
+  background-color: lightblue;
 }
