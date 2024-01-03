@@ -11,11 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-body,
-/* html {
-  height: 100%;
-  margin: 0;
-} */
 
 * {
   background-color: #ebebeb;
@@ -79,38 +74,89 @@ p {
 }
 
 .left-content {
-  display: inline-block;
-  border: solid red;
-  width: 30%;
-
-  /* line-height: 1.8vh; */
-
-  /* margin-top: 20vh;
-  margin-left: 10vh;
-  margin-right: 18vh; */
-
-  /* 100% of the viewport height */
-
-  background-color: lightblue;
-}
-.right-content {
+  flex: 1;
+  padding: 0 4%;
+  padding-bottom: 30vh;
   width: 50%;
-  height: 100%;
-
-  background-color: red;
-  display: inline-block;
+  /* border: solid black; */
+  /* background-color: lightblue;a */
 }
-.caesar-box {
-  display: inline-block;
-  border: solid red;
-  width: 30%;
-  /* line-height: 1.8vh; */
+.right {
+  flex: 1;
+  background-color: #ebebeb;
+  /* display: inline-block; */
+}
 
-  /* margin-top: 20vh;
-  margin-left: 10vh;
-  margin-right: 18vh; */
+.right-content {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
 
-  /* 100% of the viewport height */
+.box {
+  display: flex;
+}
 
-  background-color: lightblue;
+.ceasar-box {
+  height: 94vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* border: 1px solid #ccc; */
+}
+
+.header {
+  background-color: rgb(229, 229, 229);
+  height: 6vh;
+  font-size: 2.5vh;
+  font-weight: 900;
+  text-align: center;
+  text-indent: 1200px;
+}
+
+body,
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.textBox {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+
+  flex-direction: column;
+  /* border: solid black; */
+  padding: 70px 35px;
+
+  height: 90%;
+  width: 90%;
+  border-radius: 6vh 0 0 6vh;
+  background-color: rgb(255, 255, 255);
+}
+
+.encrypt-button {
+  align-self: center;
+
+  /* position: fixed; */
+  width: 10%;
+  color: white;
+  background-color: rgb(255, 159, 16);
+  padding: 10px;
+  text-align: center;
+
+  font-size: 20px;
+}
+textarea {
+  border: none;
+  background-color: white;
+  height: 90%;
+  margin-bottom: 5%;
+
+  width: 100%;
+  font-size: 24px;
+  letter-spacing: 0.3vh;
+  outline: none;
+  text-underline-position: above;
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CeasarBox } from "./components/CeasarBox";
 import { BoxButtons } from "./components/BoxButtons";
 import { EncCode } from "./components/EncCode";
 
@@ -65,40 +66,58 @@ function App() {
   };
 
   return (
-    <>
-      <CeasarBox />
-      <div className="right-content">
-        <input
-          // className="caesar-box"
-          value={text}
-          onChange={handleInputChange}
-        ></input>
-        <button onClick={handleEncryption}>Click</button>
-        <EncCode num={num} setNum={setNum} />
-        <BoxButtons mode={mode} setMode={setMode} />
+    <div>
+      <div className="header">Caesar cipher</div>
+
+      <div className="ceasar-box">
+        <CeasarBox />
+        <TextBox
+          text={text}
+          handleEncryption={handleEncryption}
+          handleInputChange={handleInputChange}
+          num={num}
+          setNum={setNum}
+          mode={mode}
+          setMode={setMode}
+        />
       </div>
-    </>
-  );
-}
-
-function CeasarBox() {
-  return (
-    <div className="left-content">
-      <h1>Caesar cipher</h1>
-      <p>
-        The most sophisticated type of cryptography in the ancient world emerged
-        in the Roman Empire in 100 BC. The Caesar cipher, a substitution cipher,
-        made messages unintelligible by shifting letters by a particular number
-        of places down the Latin alphabet.
-      </p>
-      <p>
-        The recipient, therefore, had to know the system and the number of
-        alphabet places. Julius Caesar used this method to exchange messages
-        with his army generals at war.
-      </p>
-
-      <div className="info-box">INFO</div>
     </div>
   );
 }
+
+function TextBox({
+  text,
+  handleEncryption,
+  handleInputChange,
+  num,
+  setNum,
+  mode,
+  setMode,
+}) {
+  return (
+    <div className="right">
+      <div className="right-content">
+        <div className="textBox">
+          <textarea
+            spellCheck="false"
+            autoFocus={false}
+            value={text}
+            onChange={handleInputChange}
+            placeholder="Type here..."
+            rows={15} // Set rows to 1 to allow the input to expand vertically
+          />
+          <div className="encrypt-button" onClick={handleEncryption}>
+            Click
+          </div>
+        </div>
+
+        <div>
+          <EncCode num={num} setNum={setNum} />
+        </div>
+        <BoxButtons mode={mode} setMode={setMode} />
+      </div>
+    </div>
+  );
+}
+
 export default App;
